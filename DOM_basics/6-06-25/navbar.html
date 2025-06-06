@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Navbar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            margin: 0px;
+            overflow: scroll;
+        }
+        .nav {
+            height: 10vh;
+            background-color: rgb(0, 0, 43);
+            color: rgb(255, 255, 255);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 2rem;
+
+        }
+        ul {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+        }
+        a {
+            text-decoration: none;
+            color: white;
+        }
+        a:hover {
+            color: rgb(103, 103, 241);
+            cursor: pointer;
+        }
+        li:hover {
+            color: rgb(103, 103, 241);
+            cursor: pointer;
+        }
+        .icon-bar {
+            display: none;
+            color: aliceblue;
+            width: 4rem;
+            height: 3rem;
+            cursor: pointer;
+        }
+        .icon-cross {
+            display: none;
+            color: aliceblue;
+            width: 4rem;
+            height: 3rem;
+            cursor: pointer;
+        }
+        .main-content {
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            background-color: rgb(169, 236, 214);
+            color: rgb(0, 0, 141);
+        }
+        .sidebar {
+            position: fixed;
+            top: 10vh;
+            left: 10%;
+            transform: translateX(50%);
+            width: 40%;
+            height: auto;
+            background-color: rgba(12, 11, 11, 0.733);
+            color: white;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            margin-top: 20px;
+            padding: 20px 0;
+        
+        }
+
+        #sidebar{
+            
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .heading {
+            text-align: center;
+        }
+        .content {
+            padding: 20px;
+            text-align: justify;
+        }
+    </style>
+</head>
+<body>
+    
+    <nav class="nav">
+        <div class="icon-bar">
+            <i onclick="listAndToggle()" class="fa-solid fa-bars"></i>
+        </div>
+        <div class="icon-cross">
+            <i onclick="listAndToggle()" class="fa-solid fa-xmark"></i>
+        </div>
+        <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Skills</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">Experience</a></li>
+            <li><a href="#">Contact</a></li>
+           
+        </ul>
+        
+    </nav>
+    <section class="sidebar">
+        <ul id="sidebar">
+            <li>About</li>
+            <li>Skills</li>
+            <li>Projects</li>
+            <li>Experience</li>
+            <li>Contact</li>
+           
+        </ul>
+    </section>
+    <section class="main-content">
+        
+        <div class="heading">
+            <h1>Lorem, ipsum.</h1>
+        </div>
+        <div class="content">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur omnis, dicta numquam voluptas nostrum alias natus ipsa aspernatur dolorum? Rem, eos! Nam ipsum doloremque tempore ad culpa omnis veritatis nisi obcaecati et eveniet. Voluptatibus aut illo officia beatae natus expedita consequatur, voluptatem inventore facilis delectus quod, voluptate dolorem rerum fuga?</p>
+            
+        </div>
+    </section>
+
+    
+
+
+    <script>
+
+        var mediaQuery = window.matchMedia('(max-width : 740px)');
+        var toggle = 0;
+
+        window.addEventListener('load',()=> {
+            if(mediaQuery.matches) {
+                iconChange();
+                console.log("Testing");
+            }
+        })
+
+        mediaQuery.addEventListener('change', (e) => {
+            if(e.matches) {
+                iconChange();
+                console.log("HII");
+            } else {
+                document.querySelector(".icon-bar").style.display = 'none'
+                document.querySelector(".icon-cross").style.display = 'none'
+                document.querySelector("ul").style.display = 'flex'
+                document.querySelector(".sidebar").style.display = 'none'
+            }
+        })
+        function iconChange() {
+            
+                document.querySelector(".icon-bar").style.display = 'block'
+                document.querySelector(".icon-cross").style.display = 'none'
+                document.querySelector("ul").style.display = 'none'
+                
+            
+            
+        }
+
+        function listAndToggle() {
+            if(!toggle) {
+                document.querySelector(".icon-bar").style.display = 'none'
+                document.querySelector(".icon-cross").style.display = 'block'
+                document.querySelector(".sidebar").style.display = 'flex'
+                toggle = !toggle;
+            } else {
+                document.querySelector(".icon-bar").style.display = 'block'
+                document.querySelector(".icon-cross").style.display = 'none'
+                document.querySelector(".sidebar").style.display = 'none'
+                toggle = !toggle;
+            }
+        
+        }
+    </script>
+</body>
+</html>
