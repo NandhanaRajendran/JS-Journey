@@ -61,7 +61,7 @@
             display: flex;
             align-items: center;
             flex-direction: column;
-            background-color: rgb(169, 236, 214);
+            background-color: rgb(255, 255, 255);
             color: rgb(0, 0, 141);
         }
         .sidebar {
@@ -98,6 +98,7 @@
             padding: 20px;
             text-align: justify;
         }
+        
     </style>
 </head>
 <body>
@@ -131,13 +132,31 @@
     </section>
     <section class="main-content">
         
-        <div class="heading">
-            <h1>Lorem, ipsum.</h1>
-        </div>
-        <div class="content">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur omnis, dicta numquam voluptas nostrum alias natus ipsa aspernatur dolorum? Rem, eos! Nam ipsum doloremque tempore ad culpa omnis veritatis nisi obcaecati et eveniet. Voluptatibus aut illo officia beatae natus expedita consequatur, voluptatem inventore facilis delectus quod, voluptate dolorem rerum fuga?</p>
+    <div class="content">
+        <h3>Elements used:</h3>
+        <div>
+            <h4 style="color: black;" >🔹window.matchMedia():</h4>
+            <p style="color: rgb(39, 39, 39);margin-left: 25px;" >Creates a MediaQueryList object that can be used to determine if the document matches the media query string. In this script, it checks for screen width of 740px or less.</p>
             
+            <h4 style="color: black;" >🔹addEventListener():</h4>
+            <p style="color: rgb(39, 39, 39);margin-left: 25px;" >Attaches event listeners to elements. Used here for 'load' event on window and 'change' event on mediaQuery to detect screen size changes.</p>
+            
+            <h4 style="color: black;" >🔹document.querySelector():</h4>
+            <p style="color: rgb(39, 39, 39);margin-left: 25px;" >Returns the first element that matches the specified CSS selector. Used to target specific navigation elements like .icon-bar, .icon-cross, ul, and .sidebar.</p>
+            
+            <h4 style="color: black;" >🔹style.display property:</h4>
+            <p style="color: rgb(39, 39, 39);margin-left: 25px;" >Controls the visibility of elements by setting CSS display values like 'block', 'none', and 'flex' to show or hide navigation components.</p>
+            
+            <h4 style="color: black;" >🔹Toggle variable:</h4>
+            <p style="color: rgb(39, 39, 39);margin-left: 25px;" >A boolean flag that tracks the current state of the mobile menu (open or closed) to determine which action to take when the toggle function is called.</p>
         </div>
+        <div style="text-align: center;">
+            <h4>Code snippet</h4>
+            <img src="Script.png" style="max-width: 100%; height: auto;" alt="Script image">
+        </div>
+        
+        
+    </div>
     </section>
 
     
@@ -167,13 +186,9 @@
             }
         })
         function iconChange() {
-            
-                document.querySelector(".icon-bar").style.display = 'block'
-                document.querySelector(".icon-cross").style.display = 'none'
-                document.querySelector("ul").style.display = 'none'
-                
-            
-            
+            document.querySelector(".icon-bar").style.display = 'block'
+            document.querySelector(".icon-cross").style.display = 'none'
+            document.querySelector("ul").style.display = 'none'
         }
 
         function listAndToggle() {
@@ -188,8 +203,8 @@
                 document.querySelector(".sidebar").style.display = 'none'
                 toggle = !toggle;
             }
-        
         }
+
     </script>
 </body>
 </html>
